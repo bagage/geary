@@ -1,0 +1,78 @@
+# Building & Installing Geary
+
+### Building
+
+To build Geary, run `./configure && make`. 
+By default, Geary will install under `/usr/local`.  The configure script can customize the prefix directory.  Run `./configure --help` for instructions and other installation options.
+
+### Dependencies
+
+Building Geary requires at least `GTK+` version 3.14, `WebKitGTK+` 2.4 and `Vala` 0.26, with a full `GObject` introspection repository, `intltool`, `cmake`, `desktop-file-validate`, and `xml2po` (from `gnome-doc-utils`).  Vala's `vapigen` must be installed as well.
+
+See the file [src/CMakeLists.txt](./src/CMakeLists.txt) for the complete list of minimum version requirements.
+
+Geary also requires SQLite to be built with the compiler flag `-DSQLITE_ENABLE_FTS3`. Further, SQLite 3.11.x specifically must also be built with `-DSQLITE_ENABLE_FTS3_TOKENIZER`. Most distribution's packages meet these requirements, however Fedora 24 users and others may be required to rebuild SQLite 3.11 with the second flag, or install SQLite 3.12 and recompile Geary.
+
+The developer packages and headers for the following libraries are also required when building Geary:
+
+* canberra
+* gee-0.8
+* gio-2.0
+* glib-2.0
+* gmime-2.6
+* gtk+-3.0
+* libsecret-1
+* libxml-2.0
+* notify
+* sqlite3
+* webkitgtk-3.0
+* gcr-3
+* enchant
+* messaging-menu (optional; enables support for Ubuntu Unity messaging
+  menu)
+* unity (optional; enables support for Ubuntu Unity launcher)
+
+Most of these are standard libraries available from major distros' package repositories.
+
+### Installing dependencies on Fedora
+
+Fedora 21 and later ships with the correct versions of the required libraries. Install them by running this command:
+
+```
+$ sudo yum install vala gobject-introspection-devel intltool cmake \
+    desktop-file-utils gnome-doc-utils libcanberra-devel libgee-devel \
+    glib2-devel gmime-devel gtk3-devel libnotify-devel sqlite-devel \
+    unique3-devel webkitgtk3-devel libsecret-devel libxml2-devel \
+    vala-tools gcr-devel enchant-devel
+```
+
+### Installing dependencies on Ubuntu/Debian
+
+Ubuntu 15.10 (Wily) and Debian 8.5 (Jessie) and later ships with the correct versions of the required libraries. Install them by running this command:
+
+```
+$ sudo apt-get install valac libgirepository1.0-dev intltool \
+    cmake desktop-file-utils gnome-doc-utils libcanberra-dev \
+    libgee-0.8-dev libglib2.0-dev libgmime-2.6-dev libgtk-3-dev \
+    libsecret-1-dev libxml2-dev libnotify-dev libsqlite3-dev \
+    libunique-3.0-dev libwebkitgtk-3.0-dev libmessaging-menu-dev \
+    libunity-dev libgcr-3-dev libenchant-dev
+```
+
+Ubuntu 14.04 (Trusty LTS) and 12.04 (Precise LTS) do not have all the dependencies to build Geary. See [the wiki](https://wiki.gnome.org/Apps/Geary/BuildingOnUbuntu12.04) for details and instructions.
+
+### Running
+
+If you wish to try Geary before installing it, you may execute it directly from its build directory:
+
+```
+$ ./geary
+```
+
+Note that certain desktop integration (such as being listed in an application menu) requires full installation.
+
+### Installing
+
+After Geary has built, run `sudo make install` to install it.
+
+Similarly to uninstall it, run `sudo make uninstall`.
