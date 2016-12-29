@@ -1636,6 +1636,7 @@ private class Geary.ImapDB.Account : BaseObject {
             stmt = cx.prepare("""
                 SELECT id
                 FROM MessageTable
+                WHERE header is not Null
             """);
             Gee.HashSet<int64?> message_ids = do_build_rowid_set(stmt.exec(cancellable), cancellable);
             
