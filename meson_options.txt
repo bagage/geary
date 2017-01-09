@@ -1,0 +1,5 @@
+option('DEBUG', type : 'boolean', value : false, description : 'Build for debugging.')
+option('ICON_UPDATE', type : 'boolean', value : true, description : 'Run gtk-update-icon-cache after the install.')
+option('DESKTOP_UPDATE', type : 'boolean', value : true, description : 'Run update-desktop-database after the install.')
+option('DESKTOP_VALIDATE', type : 'boolean', value : true, description : 'Check generated desktop file for errors during build.')
+option('TRANSLATE_HELP', type : 'boolean', value : true, description : 'Generate and install translated help documentation.')

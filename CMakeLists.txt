@@ -225,11 +225,11 @@ add_custom_target(
     WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/${ARCHIVE_BASE_NAME}"
 )
 
-add_subdirectory(desktop)
-add_subdirectory(help)
-add_subdirectory(icons)
-add_subdirectory(po)
-add_subdirectory(sql)
+# add_subdirectory(desktop)
+# add_subdirectory(help)
+# add_subdirectory(icons)
+# add_subdirectory(po)
+# add_subdirectory(sql)
 add_subdirectory(ui)
 add_subdirectory(src)
 add_subdirectory(test)
