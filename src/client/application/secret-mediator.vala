@@ -88,6 +88,10 @@ public class SecretMediator : Geary.CredentialsMediator, Object {
                 null, key_name, credentials.pass, cancellable, "user", key_name);
         } catch (Error e) {
             debug("Unable to store password for \"%s\" in libsecret keyring: %s", key_name, e.message);
+            ErrorDialog errdialog = new ErrorDialog(GearyApplication.instance.controller.main_window,
+                _("Unable to save password"),
+                _("This is not a fatal error, however you will be prompted again for password next time you open Geary"));
+            errdialog.run();
         }
     }
 
