@@ -73,7 +73,7 @@ namespace WebKitUtil {
      * This will raise a {@link Geary.JS.Error.TYPE} error if the
      * result is not a JavaScript `Object`.
      */
-    public JS.Object to_object(WebKit.JavascriptResult result)
+    public JS.Object? to_object(WebKit.JavascriptResult result)
         throws Geary.JS.Error {
         return Geary.JS.to_object(result.get_global_context(),
                                   result.get_value());
