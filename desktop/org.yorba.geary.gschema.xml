@@ -1,7 +1,7 @@
 <schemalist>
 
-<schema id="org.gnome.Geary" path="/org/gnome/Geary/">
 
+<schema id="org.yorba.geary" path="/org/yorba/geary/">
     <key name="attachments-directory" type="s">
         <default>''</default>
         <summary>Default attachments directory</summary>
@@ -74,6 +74,12 @@
         <description>True if we should display a short preview of each message.</description>
     </key>
 
+    <key name="spell-check" type="b">
+        <default>true</default>
+        <summary>enable inline spell checking</summary>
+        <description>True to spell check while typing.</description>
+    </key>
+
     <key name="spell-check-languages" type="as">
          <default>[]</default>
          <summary>Languages that shall be used in the spell checker</summary>
@@ -85,31 +91,26 @@
         <summary>Languages that are displayed in the spell checker popover.</summary>
         <description>List of languages that are always displayed in the popover of the spell checker.</description>
     </key>
-
     <key name="play-sounds" type="b">
         <default>true</default>
         <summary>enable notification sounds</summary>
         <description>True to play sounds for notifications and sending.</description>
     </key>
-
     <key name="show-notifications" type="b">
         <default>true</default>
         <summary>show notifications for new mail</summary>
         <description>True to show notification bubbles.</description>
     </key>
-
     <key name="startup-notifications" type="b">
         <default>false</default>
         <summary>notify of new mail at startup</summary>
         <description>True to notify of new mail at startup.</description>
     </key>
-
     <key name="ask-open-attachment" type="b">
         <default>true</default>
         <summary>ask when opening an attachment</summary>
         <description>True to ask when opening an attachment.</description>
     </key>
-
     <key name="compose-as-html" type="b">
         <default>true</default>
         <summary>whether to compose emails in HTML</summary>
@@ -121,7 +122,6 @@
         <summary>Advisory strategy for full-text searching</summary>
         <description>Acceptable values are EXACT, CONSERVATIVE, AGGRESSIVE, and HORIZON.</description>
     </key>
-
     <key name="conversation-viewer-zoom" type="d">
         <default>1</default>
         <summary>zoom of conversation viewer</summary>
